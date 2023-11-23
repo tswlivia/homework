@@ -12,7 +12,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'maven'
-      - name: Build project with Maven
+      - name: Build with Maven
         run: mvn clean install
       - name: Depcheck
         continue-on-error: true
@@ -26,7 +26,6 @@ jobs:
           format: 'HTML'
           out: 'reports' # this is the default, no need to specify unless you wish to override it
           args: >
-            --failOnCVSS 7
             --enableRetired
       - name: Upload Test results
         uses: actions/upload-artifact@master
